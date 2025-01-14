@@ -11,7 +11,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: ['http://localhost:3000', 'https://react-back-31sufniwh-sayaputihs-projects.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
