@@ -17,7 +17,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the API! Use /api/transactions to access the transactions data.');
+  res.send('Welcome to the API! Use /api/transactions to access the transactions data!!!!');
 });
 
 app.get('/api/transactions', async (req, res) => {
