@@ -10,8 +10,15 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the API! Use /api/transactions to access the transactions data.');
+});
 
 app.get('/api/transactions', async (req, res) => {
   try {
@@ -108,7 +115,6 @@ app.delete('/api/transactions/:id', async (req, res) => {
   }
 });
 
-// Menjalankan server
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
